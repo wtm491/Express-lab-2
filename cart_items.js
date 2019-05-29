@@ -8,7 +8,7 @@ const pool = new pg.Pool({
   password: "myPassword",
   host: "localhost",
   port: 5432,
-  database: "postgres",
+  database: "ExpressShopDB",
   ssl: false
 });
 
