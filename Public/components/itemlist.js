@@ -24,7 +24,6 @@ function itemList(CartService) {
           ctrl.cartData = data;
         })
       }
-
 }
 
 angular 
@@ -33,7 +32,7 @@ angular
     controller: itemList,
     template: 
     `
-        <div class = "container">
+        <div class = "input-container">
             <h1>Database Express Example</h1>
             <div class = user-input>
 
@@ -45,9 +44,23 @@ angular
 
                 <p>Add a new quantity</p>
                 <input ng-model = "newQuantity">
-
             </div>
-
+        </div>
+        <div class = "table">
+        <table style="width:100%">
+        <tr>
+          <th>id</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
         </div>
     `
 })

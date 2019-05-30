@@ -6,7 +6,7 @@ const cartItems = require("./cart_items");
 
 
 app.use(express.json());
-app.use('/', cartItems);
+app.use('/cart-items', cartItems);
 app.use(express.static('./public'));
 
 const port = 5000;

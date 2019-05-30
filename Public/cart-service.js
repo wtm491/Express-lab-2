@@ -4,7 +4,7 @@ function CartService($http, $q) {
 
     service.addItem = (item) => {
         return $http({
-          url: "/cart-items",
+          url: "/cart-items/",
           method: "POST",
           data: item
         }).then((response) => {
@@ -31,7 +31,6 @@ function CartService($http, $q) {
           return response.data;
         });
       }
-
 
 }
 

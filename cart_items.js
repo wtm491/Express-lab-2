@@ -1,11 +1,11 @@
 const express = require("express");
 const cartItems = express.Router();
-const cartData = require(`./cart_data`); 
+//const cartData = require(`./cart_data`); 
 
 const pg = require("pg");
 const pool = new pg.Pool({
   user: "postgres",
-  password: "myPassword",
+  password: "rubiX43Q",
   host: "localhost",
   port: 5432,
   database: "ExpressShopDB",
@@ -19,18 +19,19 @@ cartItems.get("/", (req, res) => {
     .then((result) => {
         res.send(result.rows);
     })
-    res.send("Selected all: ");
-    res.send(cartData);
+    // res.send("Selected all: ");
+    // res.send(cartData);
 });
 
 
 cartItems.post("/", (req, res) => {
     console.log(req.body); 
-    pool.query("INSERT INTO ShoppingCart (id, product, price, quantity)  values($1::int, $2::string, $3::int, $4::int)", [data.id, data.product, data.price, data.quantity])
+    let data = req.body; 
+    pool.query("INSERT INTO ShoppingCart (id, product, price, quantity)  values($1::int, $2::text, $3::int, $4::int)", [data.id, data.product, data.price, data.quantity])
     .then(() => {
         res.status(201);  // Created
-
-    res.send("Added Cart Item");
+        res.send("Added Cart Item");
+    });
 });
 
 
@@ -47,11 +48,12 @@ cartItems.put("/:id", (req, res) => {
 
 cartItems.delete("/:id", (req, res) => {
     console.log(req.params.id);
-    pool.query("DELETE FROM ShoppingCart (id, product, price, quantity)  values($1::int, $2::string, $3::int, $4::int)", [data.id, data.product, data.price, data.quantity])
+    pool.query("DELETE FROM ShoppingCart (id, product, price, quantity)  values($1::int, $2::text, $3::int, $4::int)", [data.id, data.product, data.price, data.quantity])
     .then(() => {
         res.status(201); //Deleted
 
-    res.send("Deleted cart item")
+        res.send("Deleted cart item");
+    });
 });
 
-module.exports = cartItems, cartData; 
+module.exports = cartItems;
