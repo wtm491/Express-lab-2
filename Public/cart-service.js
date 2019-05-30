@@ -31,9 +31,6 @@ function CartService($http, $q) {
           return response.data;
         });
       }
-    
-
-
 
 
 }

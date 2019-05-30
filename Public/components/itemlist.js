@@ -11,7 +11,6 @@ function itemList(CartService) {
           price: newPrice,
           quantity: newQuantity,
         } 
-
         CartService.addItem(newItem)
         .then( (data) => {
           ctrl.cartData = data;
@@ -20,6 +19,7 @@ function itemList(CartService) {
 
 
       ctrl.removeItem = (id) => {
+
         CartService.removeItem(id)
         .then( (data) => {
           ctrl.cartData = data;
@@ -35,6 +35,15 @@ angular
     template: 
     `
         <div class = "container">
+            <h1>Database Express Example</h1>
+            <div class = user-input>
+                <p>Add a new product</p>
+                <input ng-model = "newProduct">
+                <p>Add a new price</p>
+                <input ng-model = "newPrice">
+                <p>Add a new quantity</p>
+                <input ng-model = "newQuantity">
+            </div>
 
         </div>
     `
