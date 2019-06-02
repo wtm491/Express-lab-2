@@ -5,7 +5,7 @@ const cartItems = express.Router();
 const pg = require("pg");
 const pool = new pg.Pool({
   user: "postgres",
-  password: "rubiX43Q",  //Do not use actual password for finished app
+  password: "password",  //Do not use actual password for finished app
   host: "localhost",
   port: 5432,
   database: "ExpressShopDB",
@@ -36,6 +36,7 @@ cartItems.post("/", (req, res) => {
 
 
 cartItems.put("/:id", (req, res) => {
+    let data = req.body;
     console.log(req.params.id);
     console.log(req.body);
     pool.query(
@@ -47,8 +48,9 @@ cartItems.put("/:id", (req, res) => {
 
 
 cartItems.delete("/:id", (req, res) => {
+    let data = req.body;
     console.log(req.params.id);
-    pool.query("DELETE FROM ShoppingCart (id, product, price, quantity)  values($1::int, $2::text, $3::int, $4::int)", [data.id, data.product, data.price, data.quantity])
+    pool.query("DELETE FROM ShoppingCart WHERE id = $1::int", [req.params.id])
     .then(() => {
         res.status(201); //Deleted
 

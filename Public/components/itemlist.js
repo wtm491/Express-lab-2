@@ -1,25 +1,25 @@
 // front-end functionality and angular template here 
-    
+
 function itemList(CartService) {
 
     const ctrl = this; 
 
-    ctrl.addItem = (newProduct, newPrice, newQuantity) => {
+    // ctrl.addItem = (newProduct, newPrice, newQuantity) => {
     
-        let newItem = {
-          product: newProduct,
-          price: newPrice,
-          quantity: newQuantity,
-        } 
-        CartService.addItem(newItem)
-        .then( (data) => {
-          ctrl.cartData = data;
-        })
-      }
+    //     let newItem = {
+    //       product: newProduct,
+    //       price: newPrice,
+    //       quantity: newQuantity,
+    //     } 
+    //     CartService.addItem(newItem)
+    //     .then( (data) => {
+    //       ctrl.cartData = data;
+    //     })
+    //   }
 
-      ctrl.removeItem = (id) => {
+      ctrl.removeItem = (item) => {
 
-        CartService.removeItem(id)
+        CartService.removeItem(item)
         .then( (data) => {
           ctrl.cartData = data;
         })
