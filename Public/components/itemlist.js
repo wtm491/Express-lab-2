@@ -1,5 +1,5 @@
 // front-end functionality and angular template here 
-
+    
 function itemList(CartService) {
 
     const ctrl = this; 
@@ -26,6 +26,7 @@ function itemList(CartService) {
       }
 }
 
+//template needs updating and styles
 angular 
 .module('CartApp')
 .component(itemList, {

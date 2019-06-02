@@ -1,8 +1,12 @@
 function CartService($http, $q) {
     const service = this;
 
+    service.itemList = [];
+
+
 
     service.addItem = (item) => {
+        service.itemList.push(item);
         return $http({
           url: "/cart-items/",
           method: "POST",
@@ -13,6 +17,8 @@ function CartService($http, $q) {
       }
     
     service.removeItem = (id) => {
+        let index = service.itemList.indexOf(item);
+        service.cartList.splice(index, 1);
         return $http({
           url: "/cart-items/" + id,
           method: "DELETE"
