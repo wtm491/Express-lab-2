@@ -4,18 +4,19 @@ function itemList(CartService) {
 
     const ctrl = this; 
 
-    // ctrl.addItem = (newProduct, newPrice, newQuantity) => {
+    ctrl.addItem = (newProduct, newPrice, newQuantity) => {
     
-    //     let newItem = {
-    //       product: newProduct,
-    //       price: newPrice,
-    //       quantity: newQuantity,
-    //     } 
-    //     CartService.addItem(newItem)
-    //     .then( (data) => {
-    //       ctrl.cartData = data;
-    //     })
-    //   }
+        let newItem = {
+          product: newProduct,
+          price: newPrice,
+          quantity: newQuantity,
+        } 
+        
+        CartService.addItem(newItem)
+        .then( (data) => {
+          ctrl.cartData = data;
+        })
+      }
 
       ctrl.removeItem = (item) => {
 
@@ -23,6 +24,13 @@ function itemList(CartService) {
         .then( (data) => {
           ctrl.cartData = data;
         })
+      }
+
+      ctrl.updateItem = (item) => {
+          CartService.updateItem(item)
+          .then((data) => {
+
+          })
       }
 }
 
