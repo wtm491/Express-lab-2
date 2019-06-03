@@ -40,7 +40,7 @@ cartItems.put("/:id", (req, res) => {
     console.log(req.params.id);
     console.log(req.body);
     pool.query(
-        "UPDATE ShoppingCart SET quantity=$4::smallint WHERE id=$1::int", 
+        "UPDATE ShoppingCart SET quantity=$2::smallint WHERE id=$1::int", 
         [req.params.id, data.quantity]
     )
     res.send("Updated Cart Item");
