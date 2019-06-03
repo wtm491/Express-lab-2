@@ -45,33 +45,43 @@ angular
             <h1>Database Express Example</h1>
             <div class = user-input>
 
-                <p>Add a new product</p>
+                <button type = "button">Add a new product</button>
                 <input ng-model = "newProduct">
 
-                <p>Add a new price</p>
+                <button type = "button">Add a new price</button>
                 <input ng-model = "newPrice">
 
-                <p>Add a new quantity</p>
+                <button type = "button">Add a new quantity</button>
                 <input ng-model = "newQuantity">
             </div>
         </div>
         <div class = "table">
-        <table style="width:100%">
-        <tr>
-          <th>id</th>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <table>
+        <thead>
+            <tr>          
+                <th>ID</th>
+                <th>Product</th>
+                <th>Price</th> 
+                <th>Quantity</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in $ctrl.itemList">
+                <td> {{item.id}} </td>
+                <td> {{item.product}} </td>
+                <td> {{item.price}} </td>
+                <td> {{item.quantity}} 
+                  
+                <button ng-click="$ctrl.updateItem(item, 5)" class="new_quantity">Update Quantity</button> 
+                </td>
+                
+                <td> <button ng-click="$ctrl.removeItem(item)">X</button> </td>
+            </tr>
+          </tbody>
       </table>
+  
         </div>
     `
 })
 
-console.log('will')
