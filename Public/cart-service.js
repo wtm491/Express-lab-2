@@ -28,7 +28,7 @@ function CartService($http, $q) {
               }).then((response) => {
                 resolve(item)
                 // return response.data;
-              });
+              })
         }
         // return $http({
         //   url: "/cart-items/" + id,
@@ -36,7 +36,7 @@ function CartService($http, $q) {
         // }).then((response) => {
         //   return response.data;
         // });
-      }
+    }
 
 
     service.updateItem = (item, id) => {
