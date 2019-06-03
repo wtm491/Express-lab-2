@@ -41,7 +41,7 @@ cartItems.put("/:id", (req, res) => {
     console.log(req.body);
     pool.query(
         "UPDATE ShoppingCart SET quantity=$2::smallint WHERE id=$1::int", 
-        [req.params.id, data.quantity]
+        [req.params.id, data.quantity]   //Test by updating quantity
     )
     res.send("Updated Cart Item");
 });
@@ -50,7 +50,7 @@ cartItems.put("/:id", (req, res) => {
 cartItems.delete("/:id", (req, res) => {
     let data = req.body;
     console.log(req.params.id);
-    pool.query("DELETE FROM ShoppingCart WHERE id = $1::int", [req.params.id])
+    pool.query("DELETE FROM ShoppingCart WHERE id = $1::int", [req.params.id])  
     .then(() => {
         res.status(201); //Deleted
 
