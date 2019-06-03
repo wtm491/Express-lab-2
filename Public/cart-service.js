@@ -29,7 +29,7 @@ function CartService($http, $q) {
                 resolve(item)
                 // return response.data;
               })
-        }
+        })
         // return $http({
         //   url: "/cart-items/" + id,
         //   method: "DELETE"

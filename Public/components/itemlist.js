@@ -37,7 +37,7 @@ function itemList(CartService) {
 //template needs updating and styles
 angular 
 .module('CartApp')
-.component(itemList, {
+.component('itemList', {
     controller: itemList,
     template: 
     `
@@ -73,3 +73,5 @@ angular
         </div>
     `
 })
+
+console.log('will')
